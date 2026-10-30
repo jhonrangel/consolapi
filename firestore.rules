@@ -1,0 +1,20 @@
+rules_version = '2';
+
+/**
+ * 🔒 REGLAS DE SEGURIDAD (DESPLIEGUE DE EMERGENCIA)
+ * Actualizado: 2024-05-22 15:30:00 UTC
+ * 
+ * Este archivo permite acceso total para el prototipo.
+ * SI VES ERRORES DE PERMISOS:
+ * 1. Ve a la consola de Firebase -> Firestore -> Rules.
+ * 2. Asegúrate de estar en la base de datos "(default)".
+ * 3. Copia y pega estas reglas manualmente si el despliegue automático falla.
+ */
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+      allow read, write: if true;
+    }
+  }
+}
